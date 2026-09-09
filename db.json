@@ -1,0 +1,36 @@
+{
+    "produit": [
+        {
+            "id":"1",
+            "image":"",
+            "prix":"500",
+            "nom":"Vans",
+            "categories":"Soulier",
+            "nom_vendeur":"joe"
+        },
+        {
+            "id":"2",
+            "image":"",
+            "prix":"700",
+            "nom":"Jeans",
+            "categories":"pantalons",
+            "nom_vendeur":"josias"
+        },
+        {
+            "id":"3",
+            "image":"",
+            "prix":"900",
+            "nom":"veste",
+            "categories":"survets",
+            "nom_vendeur":"ISSA"
+        },
+        {
+            "id":"4",
+            "image":"",
+            "prix":"600",
+            "nom":"casquette",
+            "categories":"chapeaux",
+            "nom_vendeur":"focus"
+        }
+    ]
+}
