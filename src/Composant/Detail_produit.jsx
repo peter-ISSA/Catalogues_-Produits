@@ -11,7 +11,7 @@ export default function Detail_produit() {
 
   useEffect(()=>{
     axios.get(`http://localhost:3001/produit/${id}`).then((res)=>{
-      setProduits(res.data)
+      setProduit(res.data)
       setStatut("success")
       toast.success("Chragement Reussi")
     })
@@ -23,15 +23,15 @@ export default function Detail_produit() {
   return (
     <div className='text-white w-full h-screen flex-col gap-8 text-2xl justify-center items-center flex'>
         <h1>Detail du Produit</h1>
-        <div className='w-[40%] h-[40%] border flex justify-center items-center gap-8'>
-          <div className='w-[40%] h-[80%] border '>
+        <div className='w-[40%] h-[50%] shadow-2xl flex justify-center items-center gap-8'>
+          <div className='w-[40%] h-[80%] '>
             <img src={produit.image} />
           </div>
-            <div className='w-[40%] h-full flex items-center flex-col gap-8 justify-center'>
-            <p> {produit.id} </p>
-            <p> prix: {produit.prix} </p>
-            <p>categorie: {produit.categorie} </p>
-            <p>Nom_vendeur: {produit.nom_vendeur} </p>
+            <div className='w-[30%] h-full flex items-center flex-col gap-4 justify-center'>
+            <p> Nom: <span className='text-green-600'> {produit.nom} </span> </p>
+            <p> prix: <span className='text-green-600'> {produit.prix} </span>  </p>
+            <p>categorie: <span className='text-green-600'> {produit.categories} </span>  </p>
+            <p>Nom_vendeur: <span className='text-green-600'> {produit.nom_vendeur} </span>  </p>
           </div>
       </div>
       </div>

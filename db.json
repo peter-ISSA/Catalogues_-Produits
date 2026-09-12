@@ -1,10 +1,10 @@
 {
   "produit": [
     {
-      "image": "src/Media/code.jpg",
+      "image": "./src/Media/code.jpg",
       "prix": "500",
       "nom": "Codes </>",
-      "categories": "Soulier",
+      "categories": "Dev",
       "nom_vendeur": "joe"
     },
     {
@@ -33,7 +33,7 @@
       "prix": "8000",
       "nom": "One_Peice",
       "categories": "Game",
-      "nom_vendeur": "IssaGames"  
+      "nom_vendeur": "IssaGames"
     }
   ]
 }
