@@ -1,36 +1,39 @@
 {
-    "produit": [
-        {
-            "id":"1",
-            "image":"",
-            "prix":"500",
-            "nom":"Vans",
-            "categories":"Soulier",
-            "nom_vendeur":"joe"
-        },
-        {
-            "id":"2",
-            "image":"",
-            "prix":"700",
-            "nom":"Jeans",
-            "categories":"pantalons",
-            "nom_vendeur":"josias"
-        },
-        {
-            "id":"3",
-            "image":"",
-            "prix":"900",
-            "nom":"veste",
-            "categories":"survets",
-            "nom_vendeur":"ISSA"
-        },
-        {
-            "id":"4",
-            "image":"",
-            "prix":"600",
-            "nom":"casquette",
-            "categories":"chapeaux",
-            "nom_vendeur":"focus"
-        }
-    ]
+  "produit": [
+    {
+      "image": "src/Media/code.jpg",
+      "prix": "500",
+      "nom": "Codes </>",
+      "categories": "Soulier",
+      "nom_vendeur": "joe"
+    },
+    {
+      "image": "src/Media/mortal.jpg",
+      "prix": "4000",
+      "nom": "Mortal_Kombat",
+      "categories": "Games",
+      "nom_vendeur": "ISSA"
+    },
+    {
+      "image": "src/Media/cell.jpg",
+      "prix": "6000",
+      "nom": "Splinter_Cell",
+      "categories": "Accessoirs",
+      "nom_vendeur": "Joe"
+    },
+    {
+      "image": "src/Media/IMG_20260909_212121_854.jpg",
+      "prix": "3000",
+      "nom": "Call_of_duy",
+      "categories": "Games",
+      "nom_vendeur": "La_Fleur"
+    },
+    {
+      "image": "src/Media/Peice.jpg",
+      "prix": "8000",
+      "nom": "One_Peice",
+      "categories": "Game",
+      "nom_vendeur": "IssaGames"  
+    }
+  ]
 }
