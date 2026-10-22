@@ -4,8 +4,17 @@ import toast from 'react-hot-toast'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
+type Produit = {
+  id: number,
+  nom: string,
+  prix: number,
+  image: string,
+  categories:string,
+  nom_vendeur:string
+}
+
 export default function Detail_produit() {
-  const [produit, setProduit] = useState( {} )
+  const [produit, setProduit] = useState<Produit | null>(null)
   const [statut, setStatut] = useState("loading")
   const {id} = useParams()
 
@@ -25,13 +34,13 @@ export default function Detail_produit() {
         <h1>Detail du Produit</h1>
         <div className='w-[40%] h-[50%] shadow-2xl flex justify-center items-center gap-8'>
           <div className='w-[40%] h-[80%] '>
-            <img src={produit.image} />
+            <img src={produit?.image} />
           </div>
             <div className='w-[30%] h-full flex items-center flex-col gap-4 justify-center'>
-            <p> Nom: <span className='text-green-600'> {produit.nom} </span> </p>
-            <p> prix: <span className='text-green-600'> {produit.prix} </span>  </p>
-            <p>categorie: <span className='text-green-600'> {produit.categories} </span>  </p>
-            <p>Nom_vendeur: <span className='text-green-600'> {produit.nom_vendeur} </span>  </p>
+            <p> Nom: <span className='text-green-600'> {produit?.nom} </span> </p>
+            <p> prix: <span className='text-green-600'> {produit?.prix} </span>  </p>
+            <p>categorie: <span className='text-green-600'> {produit?.categories} </span>  </p>
+            <p>Nom_vendeur: <span className='text-green-600'> {produit?.nom_vendeur} </span>  </p>
           </div>
       </div>
       </div>

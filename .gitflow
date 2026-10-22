@@ -1,0 +1,61 @@
+[gitflow]
+	version = 1.0
+	initialized = true
+[gitflow "branch.bugfix"]
+	type = topic
+	parent = Develop
+	startPoint = Develop
+	upstreamStrategy = merge
+	downstreamStrategy = rebase
+	prefix = bugfix/
+	autoUpdate = false
+	tag = false
+[gitflow "branch.release"]
+	type = topic
+	parent = main
+	startPoint = Develop
+	upstreamStrategy = merge
+	downstreamStrategy = merge
+	prefix = release/
+	autoUpdate = false
+	tag = true
+[gitflow "branch.hotfix"]
+	type = topic
+	parent = main
+	startPoint = main
+	upstreamStrategy = merge
+	downstreamStrategy = rebase
+	prefix = hotfix/
+	autoUpdate = false
+	tag = true
+[gitflow "branch.support"]
+	type = topic
+	parent = main
+	startPoint = main
+	upstreamStrategy = none
+	downstreamStrategy = none
+	prefix = support/
+	autoUpdate = false
+	tag = false
+[gitflow "branch.main"]
+	type = base
+	upstreamStrategy = none
+	downstreamStrategy = none
+	autoUpdate = false
+	tag = false
+[gitflow "branch.Develop"]
+	type = base
+	parent = main
+	upstreamStrategy = merge
+	downstreamStrategy = merge
+	autoUpdate = true
+	tag = false
+[gitflow "branch.feature"]
+	type = topic
+	parent = Develop
+	startPoint = Develop
+	upstreamStrategy = merge
+	downstreamStrategy = rebase
+	prefix = feature/
+	autoUpdate = false
+	tag = false

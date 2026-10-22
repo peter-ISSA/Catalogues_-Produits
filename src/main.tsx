@@ -1,6 +1,5 @@
 import ReactDom from 'react-dom/client';
 import './index.css';
-import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Liste_produit from './Composant/Liste_produit';
 import Detail_produit from './Composant/Detail_produit';
@@ -21,7 +20,7 @@ const route = createBrowserRouter([
   }
 ])
 
-ReactDom.createRoot(document.getElementById("Gabriel-BS")).render(
+ReactDom.createRoot(document.getElementById("Gabriel-BS")!).render(
   <>
   <Toaster/>
   <RouterProvider router={route}/>

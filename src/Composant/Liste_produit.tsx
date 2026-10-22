@@ -3,8 +3,15 @@ import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { Link } from 'react-router-dom'
 
+type Produit = {
+  id: number,
+  nom: string,
+  prix: number,
+  image: string
+}
+
 export default function Liste_produit() {
-    const [produits, setProduits] = useState([])
+    const [produits, setProduits] = useState<Produit[]>([])
     const [statut, setStatut] = useState("loading")
     const [search, setSearch] = useState("")
 
