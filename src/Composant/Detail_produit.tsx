@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom'
 
 type Produit = {
   id: number,
-  nom: string,
-  prix: number,
+  title: string,
+  price: number,
   image: string,
-  categories:string,
-  nom_vendeur:string
+  category: string,
+  description: string
 }
 
 export default function Detail_produit() {
@@ -19,10 +19,12 @@ export default function Detail_produit() {
   const {id} = useParams()
 
   useEffect(()=>{
-    axios.get(`http://localhost:3001/produit/${id}`).then((res)=>{
+    axios.get(`https://fakestoreapi.com/products/${id}`).then((res)=>{
       setProduit(res.data)
       setStatut("success")
       toast.success("Chragement Reussi")
+      console.log(res.data);
+      
     })
     .catch(()=>{
       setStatut("erreur")
@@ -30,19 +32,22 @@ export default function Detail_produit() {
     })
   }, [id])
   return (
-    <div className='text-white w-full h-screen flex-col gap-8 text-2xl justify-center items-center flex'>
-        <h1>Detail du Produit</h1>
-        <div className='w-[40%] h-[50%] shadow-2xl flex justify-center items-center gap-8'>
-          <div className='w-[40%] h-[80%] '>
-            <img src={produit?.image} />
-          </div>
-            <div className='w-[30%] h-full flex items-center flex-col gap-4 justify-center'>
-            <p> Nom: <span className='text-green-600'> {produit?.nom} </span> </p>
-            <p> prix: <span className='text-green-600'> {produit?.prix} </span>  </p>
-            <p>categorie: <span className='text-green-600'> {produit?.categories} </span>  </p>
-            <p>Nom_vendeur: <span className='text-green-600'> {produit?.nom_vendeur} </span>  </p>
-          </div>
+    <div className='text-black w-full h-screen bg-[whitesmoke] flex-col gap-1 text-2xl justify-center items-center flex'>
+      <button className='bg-red-400 text-white p-2 rounded-md hover:bg-red-800 relative top-18 right-[40%] '>
+        <Link to='/'>Retour</Link>
+      </button>
+      <h1 className='text-3xl font-bold mb-4'>Detail du Produit</h1>
+      <div className='w-[60%] h-[80%] shadow-2xl bg-amber-50 flex justify-center items-center'>
+        <div className='w-[30%] h-[70%] '>
+          <img className='w-full h-full' src={produit?.image} />
+        </div>
+        <div className='w-[60%] h-[80%] p-5 flex flex-col justify-center overflow-y-scroll'>
+          <p className='m-4'> <span className='font-bold'>Nom:</span>  {produit?.title} </p>
+          <p className='m-4'><span className='font-bold'>Prix:</span>  {produit?.price}   </p>
+          <p className='m-4'> <span className='font-bold'>Catégorie:</span>  {produit?.category}   </p>
+          <p className='m-4'> <span className='font-bold'>Description:</span> {produit?.description}   </p>
+        </div>
       </div>
-      </div>
+    </div>
   )
 }

@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 
 type Produit = {
   id: number,
-  nom: string,
-  prix: number,
+  title: string,
+  price: number,
   image: string
 }
 
@@ -16,7 +16,9 @@ export default function Liste_produit() {
     const [search, setSearch] = useState("")
 
     useEffect(()=>{
-      axios.get('http://localhost:3001/produit').then((res)=>{
+      axios.get('https://fakestoreapi.com/products').then((res)=>{
+        console.log(res.data)
+        console.log("data" + res)
         setProduits(res.data)
         setStatut("success")
         toast.success("chatgement de prosuit reussi")
@@ -28,19 +30,20 @@ export default function Liste_produit() {
     }, [])
 
   return (
-    <div className='w-full text-white h-screen flex justify-center items-center gap-8 p-8 flex-col'>
+    <div className='w-full text-black bg-amber-50 h-screen flex justify-center items-center gap-8 p-8 flex-col'>
       <h1 className='text-2xl font-bold'>Liste Produits</h1>
-      <input onChange={(e)=> setSearch(e.target.value)} value={search} type="search" placeholder='Rechercher Produits' className='input-lg input'/>
+      { produits.filter((produit) => produit.title.toLowerCase().includes(search.toLowerCase())).length === 0 &&  <p className='text-red-600'>Aucun Produit Trouvé</p> }
+      <input onChange={(e)=> setSearch(e.target.value)} value={search} type="search" placeholder='Rechercher Produits' className='input-lg input bg-amber-100' />
 
-      <div  className='w-[60%] h-[80%] flex  justify-center items-center flex-wrap gap-8 overflow-y-scroll'>
+      <div  className='w-full h-full flex  justify-center items-center flex-wrap gap-8 overflow-y-scroll'>
       { produits.map((produit) =>(
-        <div key={produit.id}  className='w-[40%] h-[40%] shadow-2xl flex justify-center items-center gap-8'>
+        <div  className='w-[30%] h-[50%] bg-[whitesmoke] shadow-2xl flex justify-center items-center gap-8'>
           <div className='w-[40%] h-[80%] '>
-            <img className='w-full h-full object-cover' src={produit.image}/>
+            <img className='w-full h-full' src={produit.image}/>
           </div>
           <div className='w-[40%] h-full flex flex-col gap-8 justify-center'>
-              <h1> {produit.nom} </h1>
-              <p> {produit.prix} BIF </p>
+              <h1> {produit.title} </h1>
+              <p> {produit.price} BIF </p>
               <Link to={`/detail/${produit.id}`}><button className='btn btn-primary'>Detail</button></Link>
           </div>
         </div>
